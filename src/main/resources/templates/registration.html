@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/css/util.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/vendor/select2/select2.min.css">
+
+    <title>Registro de Usuario - Lizzard C.A.</title>
+</head>
+<body>
+    <nav class = "navbar navbar-inverse navbar-fixed-top">
+        <div class = "container center-block">
+            <div class = "navbar-header">
+                <button type = "button" class = "navbar-toggle collapsed" data-toggle = "collapse"
+                    data-target = "#navbar" aria-expanded = "false" aria-controls = "navbar">
+                    <span class = "sr-only">Toggle navigation</span>
+                    <span class = "icon-bar"></span>
+                    <span class = ""icon-bar></span>
+                    <span class = ""icon-bar></span>
+                </button>
+                <span class = "navbar-brand">Modulo de registro e inicio de sesión</span>
+            </div>
+        </div>
+    </nav>
+
+    <br><br>
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img th:src="@{/images/lizard.svg}">
+            </div>
+            <form class="login100-form validate-form" th:action="@{/registration}" method="post" th:object="${user}">
+                <span class="login100-form-title">
+                    Registro - Lizzard C.A.
+                </span>
+
+                <div class="wrap-input100 validate-input">
+                    <input id="firstName" type = "text" name = "Nombres" placeholder="Nombres" class="input100" th:field="*{firstName}"
+                           required autofocus = "autofocus"/>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input id="lastName" type = "text" name = "Apellidos" placeholder="Apellidos" class="input100" th:field="*{lastName}"
+                           required autofocus = "autofocus"/>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Debe ser un email válido, ej: ex@abc.xyz">
+                    <input id="email" type = "text" name = "Email" placeholder="Email" class="input100" th:field="*{email}"
+                           required autofocus = "autofocus"/>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Se requiere una contraseña">
+                    <input id="password" type = "password" name = "Contraseña" placeholder="Contraseña" class="input100" th:field="*{password}"
+                           required autofocus = "autofocus"/>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" type="submit">
+                        Regístrate
+                    </button>
+                </div>
+
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        ¿Ya estás registrado? <a href="/" th:href="@{/login}">Ingresar</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+<!--        scripts para el efecto parallax-->
+        <script src="https://colorlib.com/etc/lf/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="https://colorlib.com/etc/lf/Login_v1/vendor/bootstrap/js/popper.js"></script>
+        <script src="https://colorlib.com/etc/lf/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://colorlib.com/etc/lf/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+        <script>
+            $('.js-tilt').tilt({
+                scale: 1.1
+            })
+        </script>
+    </div>
+</body>
+</html>
