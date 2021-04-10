@@ -2,6 +2,8 @@
 <html lang="en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/images/gecko.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -14,11 +16,11 @@
     <title>Registro de Usuario - Lizzard C.A.</title>
 </head>
 <body>
-    <nav class = "navbar navbar-inverse navbar-fixed-top">
-        <div class = "container center-block">
-            <div class = "navbar-header">
+    <nav class = "navbar navbar-inverse navbar-fixed-top justify-content-center">
+        <div class = "container">
+            <div class = "navbar-header justify-content-center">
                 <button type = "button" class = "navbar-toggle collapsed" data-toggle = "collapse"
-                    data-target = "#navbar" aria-expanded = "false" aria-controls = "navbar">
+                    data-target = "#navbar" aria-expanded = "false" aria-controls = "navbar" style="">
                     <span class = "sr-only">Toggle navigation</span>
                     <span class = "icon-bar"></span>
                     <span class = ""icon-bar></span>
@@ -30,9 +32,9 @@
     </nav>
 
     <br><br>
-    <div class="container-login100">
+    <div class="container">
         <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
+                        <div class="login100-pic js-tilt" data-tilt>
                 <img th:src="@{/images/lizard.svg}">
             </div>
             <form class="login100-form validate-form" th:action="@{/registration}" method="post" th:object="${user}">
@@ -86,6 +88,10 @@
                     <span class="txt1">
                         ¿Ya estás registrado? <a href="/" th:href="@{/login}">Ingresar</a>
                     </span>
+                    <div th:if="${param.success}">
+                        <div class="alert alert-info" style="border-radius: 5em; background-color: #c1e89b;
+                            border-color: #c1e89b; color: #48b559">Registro exitoso!</div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -99,6 +105,8 @@
                 scale: 1.1
             })
         </script>
+
+
     </div>
 </body>
 </html>
